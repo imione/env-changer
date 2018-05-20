@@ -51,4 +51,10 @@ program
     index.envSwitcher.showStatus();
   });
 
+program
+  .on('*', function () {
+    console.error('Invalid option: %s\nSee $envswitch --help for a list of available options.', program.args.join(' '));
+    process.exit(1);
+  });
+
 program.parse(process.argv);
